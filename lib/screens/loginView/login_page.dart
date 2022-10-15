@@ -1,0 +1,106 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:sqlicrud_demo/constance.dart';
+import 'package:sqlicrud_demo/screens/loginView/login_controller.dart';
+import 'package:sqlicrud_demo/screens/widgets/custom_button_icon.dart';
+import 'package:sqlicrud_demo/screens/widgets/custom_text.dart';
+import 'package:sqlicrud_demo/screens/widgets/custom_text_form.dart';
+
+class LoginPage extends GetView<LoginController> {
+  static String id = '/loginPage';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body:
+          // Padding(
+          //   padding: const EdgeInsets.all(10.0),
+          //   child: Column(
+          //     mainAxisAlignment: MainAxisAlignment.center,
+          //     crossAxisAlignment: CrossAxisAlignment.center,
+          //     children: [
+          // TextField(
+          //   controller: controller.userNameController,
+          //   decoration: const InputDecoration(
+          //     hintText: 'Enter User Name',
+          //   ),
+          // ),
+          // TextField(
+          //   controller: controller.passwordController,
+          //   decoration: const InputDecoration(
+          //     hintText: 'Enter Password',
+          //   ),
+          // ),
+          // TextButton(
+          //   onPressed: () {
+          //     controller.onLogin();
+          //   },
+          //   child: const Text(
+          //     'Login ',
+          //     style: TextStyle(fontSize: 24),
+          //   ),
+          // ),
+
+          Padding(
+        padding: const EdgeInsets.only(
+          top: 80.0,
+          right: 20.0,
+          left: 20.0,
+        ),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                CustomText(
+                  text: "Welcome",
+                  fontSize: 30.0,
+                ),
+                CustomText(
+                  text: "Sign up",
+                  color: primaryColor,
+                  fontSize: 18,
+                )
+              ],
+            ),
+            const SizedBox(height: 10),
+            const CustomText(
+              text: "Sign into Continue",
+              fontSize: 14.0,
+              color: Colors.grey,
+            ),
+            const SizedBox(height: 30),
+             CustomTextFormField(
+              controller: controller.userNameController,
+              text: 'Username',
+              hint: 'username',
+              onSave: saved,
+              validator: validator,
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+             CustomTextFormField(
+              controller: controller.passwordController,
+                text: 'Password',
+                hint: '*******',
+                flag: true,
+                onSave: saved,
+                validator: validator),
+            const SizedBox(
+              height: 20,
+            ),
+            CustomButtomIcon(
+                text: 'Login in',
+                onPress: ()=>controller.onLogin(),
+                icon: Icon(Icons.login, color: primaryColor))
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+void saved() {}
+void validator() {}
+void onPress() {}
