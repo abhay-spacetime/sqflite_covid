@@ -47,8 +47,6 @@ class RegistrationPage extends GetView<RegistrationController> {
               controller: controller.firstNameController,
               text: 'Firstname',
               hint: 'Alex',
-              onSave: saved,
-              validator: validator,
             ),
             const SizedBox(
               height: 40,
@@ -57,8 +55,6 @@ class RegistrationPage extends GetView<RegistrationController> {
               controller: controller.lastNameController,
               text: 'Lastname',
               hint: 'Joe',
-              onSave: saved,
-              validator: validator,
             ),
             const SizedBox(
               height: 40,
@@ -67,19 +63,16 @@ class RegistrationPage extends GetView<RegistrationController> {
               controller: controller.userNameController,
               text: 'Username',
               hint: 'username',
-              onSave: saved,
-              validator: validator,
             ),
             const SizedBox(
               height: 40,
             ),
             CustomTextFormField(
-                controller: controller.passwordController,
-                text: 'Password',
-                hint: '*******',
-                flag: true,
-                onSave: saved,
-                validator: validator),
+              controller: controller.passwordController,
+              text: 'Password',
+              hint: '*******',
+              flag: true,
+            ),
             const SizedBox(
               height: 20,
             ),
@@ -93,7 +86,3 @@ class RegistrationPage extends GetView<RegistrationController> {
     );
   }
 }
-
-void saved() {}
-void onPress() {}
-void validator() {}

@@ -45,13 +45,14 @@ class UserRepository {
           : print(element.userName + element.password);
     });
 
-   
-    if (flag ==true) {
+    if (flag == true) {
       Get.put(HomeController());
       Get.find<HomeController>().fetchFromSQLite();
       Get.toNamed(HomePage.id);
     } else {
-      Get.defaultDialog(title: 'Invalid you id');
+      Get.defaultDialog(
+          title: 'Invalid you User',
+          middleText: 'Please check UserName or Password!!..');
       Get.toNamed(LoginPage.id);
     }
   }

@@ -12,9 +12,7 @@ class LoginPage extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:
-      
-          Padding(
+      body: Padding(
         padding: const EdgeInsets.only(
           top: 80.0,
           right: 20.0,
@@ -43,29 +41,26 @@ class LoginPage extends GetView<LoginController> {
               color: Colors.grey,
             ),
             const SizedBox(height: 30),
-             CustomTextFormField(
+            CustomTextFormField(
               controller: controller.userNameController,
               text: 'Username',
               hint: 'username',
-              onSave: saved,
-              validator: validator,
             ),
             const SizedBox(
               height: 40,
             ),
-             CustomTextFormField(
-              controller: controller.passwordController,
+            CustomTextFormField(
+                controller: controller.passwordController,
                 text: 'Password',
                 hint: '*******',
                 flag: true,
-                onSave: saved,
-                validator: validator),
+            ),
             const SizedBox(
               height: 20,
             ),
             CustomButtomIcon(
                 text: 'Login in',
-                onPress: ()=>controller.onLogin(),
+                onPress: () => controller.onLogin(),
                 icon: Icon(Icons.login, color: primaryColor))
           ],
         ),
@@ -73,7 +68,3 @@ class LoginPage extends GetView<LoginController> {
     );
   }
 }
-
-void saved() {}
-void validator() {}
-void onPress() {}

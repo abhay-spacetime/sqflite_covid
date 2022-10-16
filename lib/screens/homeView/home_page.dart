@@ -23,13 +23,13 @@ class HomePage extends GetView<HomeController> {
           IconButton(
               onPressed: () {
                 controller.logout();
-               },
+              },
               icon: const Icon(Icons.logout, color: primaryColor))
         ],
       ),
       body: Obx(
         () => controller.loading.value == true
-            ? const CircularProgressIndicator()
+            ? Center(child: const CircularProgressIndicator())
             : ListView.builder(
                 itemCount: controller.userController.allUser.length,
                 itemBuilder: (context, index) {
@@ -38,11 +38,12 @@ class HomePage extends GetView<HomeController> {
                     child: ListTile(
                       title: Text(
                           'Name: ${controller.userController.allUser[index].firstName} ${controller.userController.allUser[index].lastName}',
-                          style:
-                              const TextStyle(color: Colors.blueGrey, fontSize: 20)),
+                          style: const TextStyle(
+                              color: Colors.blueGrey, fontSize: 20)),
                       subtitle: Text(
                           'Username: ${controller.userController.allUser[index].userName}',
-                          style: const TextStyle(fontSize: 18, color: Colors.grey)),
+                          style: const TextStyle(
+                              fontSize: 18, color: Colors.grey)),
                       trailing: IconButton(
                         icon: const Icon(
                           Icons.close,
