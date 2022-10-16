@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sqflite/view/StudentPage.dart';
+import 'package:flutter_sqflite/view/UserPage.dart';
 
 void main() {
   runApp(const MyApp());
