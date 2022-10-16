@@ -3,20 +3,20 @@ import 'package:flutter_sqflite/model/UserModel.dart';
 import 'package:flutter_sqflite/view_model/StudentViewModel.dart';
 import 'package:get/get.dart';
 
-class StudentPage extends StatefulWidget {
-  const StudentPage({Key? key}) : super(key: key);
+class UserPage extends StatefulWidget {
+  const UserPage({Key? key}) : super(key: key);
 
   @override
-  State<StudentPage> createState() => _StudentPageState();
+  State<UserPage> createState() => _UserPageState();
 }
 
-class _StudentPageState extends State<StudentPage> {
+class _UserPageState extends State<UserPage> {
   final studentViewModel = Get.put(StudentViewModel());
   final firstnameController = TextEditingController();
   final lastnameController = TextEditingController();
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
-int? studentId;
+  int? studentId;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,6 @@ int? studentId;
                   controller: passwordController,
                   decoration: InputDecoration(hintText: 'Enter password'),
                 ),
-                
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
