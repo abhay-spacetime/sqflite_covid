@@ -60,7 +60,8 @@ class RegistrationController extends GetxController {
       lastNameController.text = '';
       userNameController.text = '';
       passwordController.text = '';
-     
+      Get.put(HomeController());
+      Get.find<HomeController>().fetchFromSQLite();
       Get.toNamed(HomePage.id);
     }
 

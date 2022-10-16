@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sqlicrud_demo/constance%20copy.dart';
+import 'package:sqlicrud_demo/screens/loginView/login_page.dart';
 import 'package:sqlicrud_demo/screens/registrationView/registration_controller.dart';
 import 'package:sqlicrud_demo/screens/widgets/custom_button_icon.dart';
 import 'package:sqlicrud_demo/screens/widgets/custom_text.dart';
@@ -22,15 +23,18 @@ class RegistrationPage extends GetView<RegistrationController> {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
+              children: [
                 CustomText(
                   text: "Welcome",
                   fontSize: 30.0,
                 ),
-                CustomText(
-                  text: "Sign in",
-                  color: primaryColor,
-                  fontSize: 18,
+                GestureDetector(
+                  onTap: (() => Get.offNamed(LoginPage.id)),
+                  child: CustomText(
+                    text: "Sign in",
+                    color: primaryColor,
+                    fontSize: 18,
+                  ),
                 )
               ],
             ),

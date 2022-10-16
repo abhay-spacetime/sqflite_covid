@@ -10,14 +10,17 @@ class UserModelController extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
     fetchAllUser();
   }
 
   fetchAllUser() async {
-    var student = await userRepository.getUser();
-    allUser.value = student;
+    try {
+      var student = await userRepository.getUser();
+      allUser.value = student;
+    } catch (e) {
+      print('Error:${e}');
+    }
   }
 
   addUser(UserModel userModel) {
@@ -30,8 +33,7 @@ class UserModelController extends GetxController {
     fetchAllUser();
   }
 
-  loginUser(String username,String password) {
-    var result = userRepository.selectUser(username,password);
-    
+  loginUser(String username, String password) {
+    var result = userRepository.selectUser(username, password);
   }
 }
