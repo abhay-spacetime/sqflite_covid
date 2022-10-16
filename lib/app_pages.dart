@@ -40,12 +40,11 @@ List<GetPage> pages = [
       () => Get.lazyPut<HomeController>(() => HomeController()),
     ),
   ),
-GetPage(
+  GetPage(
     name: CovidPage.id,
     page: () => CovidPage(),
     binding: BindingsBuilder(
       () => Get.lazyPut<CovidController>(() => CovidController()),
     ),
   ),
-
 ];

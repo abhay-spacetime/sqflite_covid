@@ -1,5 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:sqlicrud_demo/database/model/user_controller.dart';
+import 'package:sqlicrud_demo/database/model/user_model.dart';
+import 'package:sqlicrud_demo/screens/homeView/home_controller.dart';
 import 'package:sqlicrud_demo/screens/homeView/home_page.dart';
 
 class LoginController extends GetxController {
@@ -23,6 +26,8 @@ class LoginController extends GetxController {
   }
 
   onLogin() {
-    Get.toNamed(HomePage.id);
+    Get.put(UserModelController());
+    Get.find<UserModelController>()
+        .loginUser(userNameController.text, passwordController.text);
   }
 }

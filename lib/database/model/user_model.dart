@@ -1,11 +1,17 @@
 class UserModel {
   int? id;
-  String firstName;
-  String lastName;
+  String? firstName;
+  String? lastName;
   String userName;
   String password;
 
-  UserModel({this.id, required this.firstName,required this.lastName,required this.userName,required this.password,});
+  UserModel({
+    this.id,
+     this.firstName,
+     this.lastName,
+    required this.userName,
+    required this.password,
+  });
 
   factory UserModel.fromMap(Map<dynamic, dynamic> json) {
     return UserModel(
@@ -14,7 +20,6 @@ class UserModel {
       lastName: json['lastName'],
       userName: json['userName'],
       password: json['password'],
-      
     );
   }
 
@@ -25,7 +30,6 @@ class UserModel {
       'lastName': lastName,
       'userName': userName,
       'password': password,
-      
     };
   }
 }

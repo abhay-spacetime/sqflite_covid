@@ -15,24 +15,28 @@ class LandingPage extends GetView<LandingController> {
         body: Center(
       child: Padding(
         padding: const EdgeInsets.all(50.0),
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              CustomButtomIcon(
-                  text: 'Login',
-                  onPress: () => controller.redirection(LoginPage.id),
-                  icon: Icon(Icons.login, color: primaryColor)),
-              CustomButtomIcon(
-                  text: 'Registration',
-                  onPress: () => controller.redirection(RegistrationPage.id),
-                  icon: Icon(Icons.home, color: primaryColor)),
-              CustomButtomIcon(
-                  text: 'Covid Records',
-                  onPress: () => controller.redirection(CovidPage.id),
-                  icon: Icon(Icons.coronavirus_rounded, color: primaryColor))
-            ]),
+        child: Obx(()=> controller.loading == true
+            ? CircularProgressIndicator()
+            : Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                    CustomButtomIcon(
+                        text: 'Login',
+                        onPress: () => controller.redirection(LoginPage.id),
+                        icon: Icon(Icons.login, color: primaryColor)),
+                    CustomButtomIcon(
+                        text: 'Registration',
+                        onPress: () =>
+                            controller.redirection(RegistrationPage.id),
+                        icon: Icon(Icons.home, color: primaryColor)),
+                    CustomButtomIcon(
+                        text: 'Covid Records',
+                        onPress: () => controller.redirection(CovidPage.id),
+                        icon: Icon(Icons.coronavirus_rounded,
+                            color: primaryColor))
+                  ]),
       ),
-    ));
+    )));
   }
 }

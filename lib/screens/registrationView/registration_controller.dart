@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sqlicrud_demo/screens/homeView/home_controller.dart';
 import 'package:sqlicrud_demo/screens/homeView/home_page.dart';
-
+import 'package:get_storage/get_storage.dart';
 import '../../database/model/user_controller.dart';
 import '../../database/model/user_model.dart';
 import '../../database/repositories/user_repository.dart';
@@ -27,6 +27,7 @@ class RegistrationController extends GetxController {
 
   addUser(UserModel userModel) {
     userRepository.add(userModel);
+
     userController.fetchAllUser();
   }
 
@@ -59,10 +60,11 @@ class RegistrationController extends GetxController {
       lastNameController.text = '';
       userNameController.text = '';
       passwordController.text = '';
+     
+      Get.toNamed(HomePage.id);
     }
 
     // nav to homePage
-   Get.toNamed(HomePage.id);
   }
 }
 

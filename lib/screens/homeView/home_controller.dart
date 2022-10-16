@@ -9,10 +9,9 @@ import '../../database/repositories/user_repository.dart';
 class HomeController extends GetxController {
   UserRepository userRepository = UserRepository();
   UserModelController userController = UserModelController();
-
+  RxBool loading = true.obs;
   @override
   void onInit() {
-    fetchFromSQLite();
     super.onInit();
   }
 
@@ -22,10 +21,17 @@ class HomeController extends GetxController {
   }
 
   void fetchFromSQLite() {
-    //Loading = true;
-    // fetch krke data me insert
-    userController.fetchAllUser();
-    //Loading = false;
+    try {
+      loading.value = true;
+      userController.fetchAllUser();
+
+      loading.value = false;
+    } catch (e) {
+      print('Error: error fetch data from database${e}');
+      loading.value = false;
+    } finally {
+      loading.value = false;
+    }
   }
 
   void navToCovidReports() {}

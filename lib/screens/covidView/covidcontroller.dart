@@ -10,21 +10,24 @@ import 'package:http/http.dart' as http;
 
 class CovidController extends GetxController {
   RxList covidList = [].obs;
+  RxBool loading = true.obs;
+  List<RxBool> dropdown = [];
   @override
   void onInit() async {
-    covidList.value = await fetchCovidFromApi();
+    try {
+      loading.value = true;
+      covidList.value = await fetchCovidFromApi();
+      covidList.forEach((element) => dropdown.add(false.obs));
+      loading.value = false;
+    } catch (e) {
+      print('Error:fetch data from api${e}');
+    }
     super.onInit();
   }
 
-  String convertDateToString(String date) {
-    var year = date.substring(0, 4);
-    var month = date.substring(4, 6);
-    var day = date.substring(6, 8);
-    return day + '/' + month + '/' + year;
-  }
+  void dropdownChanged() {}
 
-  String covertnumberToState(String num) {
-    var value = state[num];
-    return value.toString();
-  }
+  String convertDateToString(String date) => DateFormat("dd-MMM-yyyy").format(DateTime.parse(date));
+
+  String covertnumberToState(String num) => state[num].toString();
 }

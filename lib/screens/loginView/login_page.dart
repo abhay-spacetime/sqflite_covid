@@ -13,34 +13,7 @@ class LoginPage extends GetView<LoginController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body:
-          // Padding(
-          //   padding: const EdgeInsets.all(10.0),
-          //   child: Column(
-          //     mainAxisAlignment: MainAxisAlignment.center,
-          //     crossAxisAlignment: CrossAxisAlignment.center,
-          //     children: [
-          // TextField(
-          //   controller: controller.userNameController,
-          //   decoration: const InputDecoration(
-          //     hintText: 'Enter User Name',
-          //   ),
-          // ),
-          // TextField(
-          //   controller: controller.passwordController,
-          //   decoration: const InputDecoration(
-          //     hintText: 'Enter Password',
-          //   ),
-          // ),
-          // TextButton(
-          //   onPressed: () {
-          //     controller.onLogin();
-          //   },
-          //   child: const Text(
-          //     'Login ',
-          //     style: TextStyle(fontSize: 24),
-          //   ),
-          // ),
-
+      
           Padding(
         padding: const EdgeInsets.only(
           top: 80.0,

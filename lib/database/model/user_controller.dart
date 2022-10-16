@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:sqlicrud_demo/database/model/user_model.dart';
 import 'package:sqlicrud_demo/database/repositories/user_repository.dart';
+import 'package:sqlicrud_demo/screens/homeView/home_controller.dart';
+import 'package:sqlicrud_demo/screens/homeView/home_page.dart';
 
 class UserModelController extends GetxController {
   var allUser = <UserModel>[].obs;
@@ -18,13 +20,18 @@ class UserModelController extends GetxController {
     allUser.value = student;
   }
 
-  addUser(UserModel studentModel) {
-    userRepository.add(studentModel);
+  addUser(UserModel userModel) {
+    userRepository.add(userModel);
     fetchAllUser();
   }
-deleteStudent(int id) {
+
+  deleteUser(int id) {
     userRepository.delete(id);
     fetchAllUser();
   }
-  
+
+  loginUser(String username,String password) {
+    var result = userRepository.selectUser(username,password);
+    
+  }
 }
